@@ -1,0 +1,4 @@
+#chat-screen{height:400px; width:100%;}
+#chat-screen{overflow:hidden; overflow-y:scroll;}
+#suggestions{height:100px; width:100%;}
+#suggestions{overflow:hidden; overflow-y:scroll;}

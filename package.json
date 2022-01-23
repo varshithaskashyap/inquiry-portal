@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-sample-login",
+  "version": "1.0.1",
+  "description": "A login System using nodeJS",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "login",
+    "signup",
+    "nodejs"
+  ],
+  "author": "kushtej",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
+    "ws": "^7.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

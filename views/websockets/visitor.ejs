@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Visitor Portal</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="/websockets/styles/index.css">
+        <script type="text/javascript" src="/websockets/scripts/visitor.js"></script>
+    </head>
+
+  <body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <span id='acc_id' hidden>
+        <%= acc_id %>
+    </span>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-5">Visitor Portal</h2>
+        <h1 class="h2">Welcome <%=username%>!</h1>
+        <div>
+            <div class="form-group">
+                <ul class="list-group" id="chat-screen">
+                    <% if (chats) { %>
+                        <% for (var i = 0; i < chats.length; i++) { %>
+                            <% if (chats[i].from_id == acc_id) { %>
+                                <li class="list-group-item list-group-item-dark mt-3">
+                                    <p class="float-left">You</p>
+                                    <p class="text-right "><%=chats[i].text%>
+                                        <img src="/websockets/images/user.png"
+                                            class="rounded float-right" alt="user">
+                                    </p>
+                                    <small class="float-left text-secondary"><%=chats[i].created_at%></small><br>
+                                </li>
+                            <% } else { %>
+                                <li class="list-group-item mt-3 ">
+                                    <p class="float-right">Agent</p>
+                                        <p class="text-left">
+                                            <img src="/websockets/images/bot.png" class="rounded float-left" alt="bot">
+                                            <%=chats[i].text%>
+                                        </p>
+                                        <small class="float-right text-secondary"><%=chats[i].created_at%></small><br>
+                                    </li>  
+                            <% } %>  
+
+                        <% } %>
+                    <% } %>
+                </ul>
+
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="inputText" placeholder="Type here" aria-label="inputText"
+                    aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="submit">send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+  <footer class="container">
+      <hr>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</html>

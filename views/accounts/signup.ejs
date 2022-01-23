@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+  <script type="text/javascript" src="/accounts/scripts/signup.js"></script>
+</head>
+
+<body>
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+ 
+  <div class="container">
+
+
+    <h2>Sign up Form</h2>
+    <form action="/signup" id='#signupForm' method="POST">
+      <div class="form-group">
+        <label for="uname">Username:</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+        <div id="availabality"</div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="position">Position:</label>
+        <select class="form-control" name="position" id="position" required>
+          <option>Visitor</option>
+          <option>Agent</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+        <!-- <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div> -->
+        <div id="valid-password"></div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="pwd">Retype Password:</label>
+        <input type="password" class="form-control" id="repassword" placeholder="Enter password" name="repassword" required>
+        <!-- <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div> -->
+        <div id="valid-repassword"></div>
+
+      </div>
+
+      <% if(status == false){ %>
+        <p style="color:red"><%=message%></p>
+      <% } %>
+
+      <div class="form-group form-check">
+        <label class="form-check-label">
+          <input class="form-check-input" type="checkbox" name="remember" required> I agree to Terms and Conditions.
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Check this checkbox to continue.</div>
+        </label>
+      </div>
+      <div id='submitButton'>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  
+
+  <footer class="footer mt-auto py-3">
+    <%- include('../partials/footer'); %>
+
+  </footer>
+
+</html>
